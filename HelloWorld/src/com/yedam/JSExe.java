@@ -2,6 +2,11 @@ package com.yedam;
 
 public class JSExe {
 	public static void main(String[] args) {
+
+		// 변경된 부분.
+
+
+		// 충돌 연습 아무내용 기입
 		// 임의의 수를 생성 1 ~ 100 사이의 임의의 값 생성
 		// 0 <= x < 101 
 		int sum = 0;
