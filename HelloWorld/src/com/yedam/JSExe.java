@@ -20,8 +20,8 @@ public class JSExe {
 		test4();
 	} // end of main
 
-	public static void test4() {
-
+	public static void test4() { // 사용자에게 이름 입력 받아서 이름 목록 출력하기
+		// 시간 남으면 뒤에 콤마 없애기
 		Scanner scn = new Scanner(System.in);
 		String name = "친구목록은 ";
 		while (true) {
