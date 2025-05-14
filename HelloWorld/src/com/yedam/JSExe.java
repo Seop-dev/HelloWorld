@@ -17,7 +17,7 @@ public class JSExe {
 //		System.out.println(str1.equals(str2)); // 문자열을 비교할때는 .equals메소드를 사용해야함
 //		test2(); // 평균 구하기 소수점까지 출력
 //		test3(); // 스캐너 사용
-		test4();
+		test4(); // 4번 끝
 	} // end of main
 
 	public static void test4() { // 사용자에게 이름 입력 받아서 이름 목록 출력하기
