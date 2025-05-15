@@ -16,14 +16,33 @@ public class JSExe {
 
 //		System.out.println(str1.equals(str2)); // 문자열을 비교할때는 .equals메소드를 사용해야함
 //		test2(); // 평균 구하기 소수점까지 출력
-//		test3(); // 스캐너 사용
-		test4(); // 4번 끝
+		test3(); // 스캐너 사용
+//		test4(); // 사용자에게 입력 받아 이름 목록 출력하기
+//		test5();
 	} // end of main
 
-	public static void test4() { // 사용자에게 이름 입력 받아서 이름 목록 출력하기
-		// 시간 남으면 뒤에 콤마 없애기
+	public static void test5() {
+		// printf("형식 문자열", 값1, 값2...) println은 자동 줄바꿈 기능이 있음
+		System.out.printf("%s %d\t", "1번문자", 30); // % < 뒤에 오는 문자 값을 받아옴 s=문자 d=숫자 f=소수 \n = 줄바꿈 \t = tab 
+		System.out.printf("%s %.2f\t", "2번문자", 30.3); // %f 앞에 .2 를 붙히면 소수점 둘째자리 까지만 출력 
+		System.out.printf("");
+		
+		// "홍길동", 100, 23.9 < 출력해보기
+		System.out.printf("%s %d %.1f\n", "홍길동", 100, 23.9);
+		
+		// 자기소개 출력해보기 문자열 타입 이해
+		// 안녕하세요. 제 이름은 이동섭입니다.
+		// 나이는 29세입니다.
+		// 몸무게는 80.1kg입니다.
+		System.out.printf("%s\n", "안녕하세요. 제 이름은 이동섭입니다.");
+		System.out.printf("%s%d%s\n", "나이는",29,"세입니다.");
+		System.out.printf("%s%.1f%s" , "몸무게는",80.1,"kg입니다.");
+	}
+	
+	public static void test4() { // 사용자에게 이름 입력 받아서 이름 목록 출력하시오.
 		Scanner scn = new Scanner(System.in);
 		String name = "친구목록은 ";
+		boolean isFirst = true;
 		while (true) {
 			System.out.println("친구이름을 입력하세요. 종료하려면 quit 입력>>");
 			String msg = scn.nextLine();
@@ -32,12 +51,19 @@ public class JSExe {
 				name += " 입니다";
 				break;
 			}
-			name += msg + ", ";
+			if (isFirst) {
+				name += msg;
+				isFirst = false;
+			}else {
+				name += ", " + msg;
+			}
+			
 //			System.out.println("당신이 입력한 값은: " + name);
 		}
 		// 홍길동, 김민규, 최석영
 		// 친구목록은 홍길동, 김민규, 최석영 입니다
 		System.out.println(name);
+		System.out.println("end of prog");
 	} // end of test4
 
 	public static void test3() { // 사용자에게 값을 입력 받아 평균 구하기
