@@ -52,8 +52,9 @@ public class MemberExe {
                 String phone = scanner.nextLine();
                 System.out.printf("Member[%d] 포인트>> ", inputCount);
                 int point = Integer.parseInt(scanner.nextLine());
-
+                
                 Member member = new Member();
+
                 member.MemID = id;
                 member.MemName = name;
                 member.MemPhone = phone;
