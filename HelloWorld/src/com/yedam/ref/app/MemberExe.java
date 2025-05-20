@@ -1,4 +1,4 @@
-package ddom.yedam.ref.app;
+package com.yedam.ref.app;
 
 /*
  * 회원 추가, 수정, 삭제 조회 기능

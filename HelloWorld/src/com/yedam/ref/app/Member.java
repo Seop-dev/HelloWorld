@@ -1,4 +1,4 @@
-package ddom.yedam.ref.app;
+package com.yedam.ref.app;
 
 /*
  *  항목(아이디, 이름, 전화번호, 포인트)

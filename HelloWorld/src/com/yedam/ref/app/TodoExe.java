@@ -1,4 +1,4 @@
-package ddom.yedam.ref.app;
+package com.yedam.ref.app;
 
 public class TodoExe {
 	
