@@ -43,27 +43,14 @@ public class UserExe {
 
 	// 아이디, 비밀번호 =>
 	static boolean login(String uname, String passwd) {
-		Scanner scn = new Scanner(System.in);
 		// code HERE.
-		boolean isLogin = false;
-		while (!isLogin) {
-			System.out.println("유저 아이디 입력>> ");
-			String uId = scn.nextLine();
-			System.out.println("비밀번호 입력>> ");
-			String uPw = scn.nextLine();
-
-
-			for (User user : users) {
-				if (user.getUserId().equals(uId) && user.getPasswd().equals(uPw)) {
-					System.out.println("로그인 성공!");
-					isLogin = true;
-					break;
-				}
-			}
-			if (!isLogin) {
-				System.out.println("아이디 또는 비밀번호를 확인해주세요.");
+		// 매개값과 같은 User가 있는지 체크.
+		for (int i = 0; i < users.length; i++) {
+			if (users[i].getUserId().equals(uname)//
+					&& users[i].getPasswd().equals(passwd)) {
+				return true; // 아이디 & 비번이 정확.
 			}
 		}
-		return true;
+		return false;
 	}
 }

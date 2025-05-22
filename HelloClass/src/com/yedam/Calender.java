@@ -1,6 +1,16 @@
 package com.yedam;
 
 public class Calender {
+	
+	static boolean isLeapYear(int year) {
+		// 윤년이면 true, 평년이면 false
+		if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	static void showMonth() {
 		// Sun Mon Tue Wed Thu Fri Sat
 		//==============================
@@ -21,7 +31,7 @@ public class Calender {
 					System.out.println();
 				}
 		}
-	}
+	} // end of showMonth
 	public static int getSpace(int month) {
 		int space = 0;
 		if(month==3) { // 3월

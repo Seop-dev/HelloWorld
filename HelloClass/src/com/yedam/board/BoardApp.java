@@ -1,4 +1,5 @@
 package com.yedam.board;
+
 /*
  * 게시판
  * Board: 글 번호, 제목, 내용, 작성자
@@ -11,3 +12,4 @@ public class BoardApp {
 		exe.execute();
 	}
 }
+	

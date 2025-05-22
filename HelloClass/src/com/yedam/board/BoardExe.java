@@ -32,31 +32,51 @@ public class BoardExe {
 		boards[10] = new Board(20, "날씨가20 좋습니다", "오늘 기온이 30도가 넘습니다", "홍길동");
 
 	}
-
+	
+	// loginCheck()
+	boolean loginCheck() {
+		// 3번 기회. 숙제. 2025년 05월 21일.
+				// 아이디 입력.
+				// 비밀번호 입력.
+				for (int i = 1; i <= 3; i++) {
+					String id = userMessage("아이디를 입력");
+					String pw = userMessage("비밀번호를 입력");
+					// 로그인 성공하면...
+					if (!UserExe.login(id, pw)) {
+						System.out.println("아이디와 비밀번호를 확인하세요.");
+						if (i == 3) {
+							System.out.println("3번 실패했습니다. 종료합니다.");
+							return false;
+						}
+						continue;
+					} // 실패의 경우
+					// 로그인을 성공하면 언제라도 반복문을 빠져 나와서 아래 코드를 실행.
+					return true; 
+				} // 3번의 기회를 제공.
+				return false;
+	} // end of loginCheck()
+	
 	// 메소드
 	void execute() {
-		
-		// 3번 기회
-		// 아이디 입력
-		// 비밀번호 입력
-		
-		UserExe.login(null, null);
-		String id = userMessage("아이디를 입력");
-		String pw = userMessage("비밀번호를 입력");
-		// 로그인 성공시
-		if(!UserExe.login(id, pw)) {
-			System.out.println("아이디와 비밀번호를 확인하세요.");
-			return;
+		if(!loginCheck()) {
+			return; // excute() 메소드의 종료
 		}
-		System.out.println("환영합니다!");
-		
+		System.out.println("환영합니다!!!");
+
 		boolean run = true;
 		while (run) {
 			System.out.println("--------------------------------------------");
 			System.out.println("1.추가 2.수정 3.삭제 4.목록 5.종료");
 			System.out.println("--------------------------------------------");
 			System.out.println("선택>> ");
-			int selectNo = Integer.parseInt(scn.nextLine());
+			// 문자를 숫자 변경 예외발생
+			int selectNo = 0;
+			try {
+				selectNo = Integer.parseInt(scn.nextLine());				
+			} catch (NumberFormatException e) {
+				System.out.println("1 ~ 5번중에 선택.");
+				continue;
+			}
 			switch (selectNo) {
 			case 1: // 추가
 				addBoard();
@@ -133,15 +153,14 @@ public class BoardExe {
 			String str = scn.nextLine();
 			// 메뉴, 상세
 			if (str.equals("q")) {
-				break; //return;
+				break; // return;
 			} else if (str.equals("n")) {
 				page++;
-			} else if(str.equals("p")) {
+			} else if (str.equals("p")) {
 				page--;
-			}
-			else {
+			} else {
 				int no = Integer.parseInt(str);
-				// 배열에서 조회	
+				// 배열에서 조회
 				Board sboard = getBoard(no);
 				if (sboard == null) {
 					System.out.println("조회결과 없습니다.");
